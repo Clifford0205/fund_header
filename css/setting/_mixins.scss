@@ -1,0 +1,44 @@
+// ＝＝＝＝＝所有mixin放這裡 除了media＝＝＝＝＝
+// =====link-trasition=====
+@mixin transition($sec, $efc) {
+  transition: ($sec) ($efc);
+}
+// =====link-color-chang=====
+@mixin aSelect($hover, $active) {
+  &:hover{
+      color: lighten($color: $hover, $amount: 35%);
+  }
+  &:active{
+      color: lighten($color: $active, $amount: 35%);
+  }
+}
+
+// =====navibar underline mixin=====
+@mixin hover_lineup($linecolor) {
+  &:before{
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 1px;
+      width: 0;
+      opacity: 0;
+      background-color: $linecolor;
+      @include transition(.2s, ease-in-out);
+  }
+  &:hover{
+      &:before{
+          width: 100%;
+          opacity: 0.8;
+      } 
+  }
+}
+
+@mixin clamp($line-height,$line) {
+  height: $line-height*$line;
+  line-height: $line-height;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+  display: -webkit-box;
+}

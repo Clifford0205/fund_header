@@ -1,0 +1,131 @@
+// ＝＝＝＝＝整個網頁基礎顏色變數放這裡＝＝＝＝＝
+// $default: #4C4D5C;
+$default: #000000;
+$black: #1A1A1B;
+$gray: rgb(152, 154, 172);
+$light-gray: #f4f6f8;
+
+// red
+$dark-red: #9C0006;
+$light-red: #FFC7CE;
+// green
+$green: rgb(20, 116, 63);
+$light-green: #C2D69A;
+// yellow
+$light-yellow: #FFEB9C;
+$deep-yellow: #ECC31B;
+// purple
+$light-purple: #E5E0EC;
+$dark-purple: #B2A1C7;
+// orange
+$light-orang: #FAC090;
+// blue
+$blue: #0767ce;
+
+// ＝＝＝＝＝RWD madia mixin 放這裡＝＝＝＝＝
+$hd-media: 1401px;
+$hds-media:1400px;
+$large-media:1201px;
+$larges-media:1200px;
+$pc-media:993px;
+$pcs-media:992px;
+$pad-media:769px;
+$pads-media:768px;
+$phone-media:480px;
+$phones-media:479px;
+$hanburger-show:1007px;
+$nav-pad-media:767px;
+
+// 最大媒體尺寸以上
+@mixin hd-width() {
+    @media all and (min-width: $hd-media) {
+        @content;
+    }
+}
+
+// 最大媒體尺寸以下
+@mixin under-hd-width() {
+    @media all and (max-width: $hds-media) {
+        @content;
+    }
+}
+
+// 最大媒體尺寸以上
+@mixin large-width() {
+    @media all and (min-width: $large-media) {
+        @content;
+    }
+}
+
+// 最大媒體尺寸以下
+@mixin under-large-width() {
+    @media all and (max-width: $larges-media) {
+        @content;
+    }
+}
+
+//電腦
+@mixin pc-width() {
+    @media all and (min-width: $pc-media) {
+        @content;
+    }
+}
+
+//電腦以下
+@mixin under-pc-width() {
+    @media all and (max-width: $pcs-media) {
+        @content;
+    }
+}
+
+//平板
+@mixin pad-width() {
+    @media all and (min-width: $pad-media) {
+        @content;
+    }
+}
+
+//nav用平板
+@mixin nav-pad-width() {
+    @media all and (min-width: $nav-pad-media) {
+        @content;
+    }
+}
+
+
+//平板以下
+@mixin under-pad-width() {
+    @media all and (max-width: $pads-media) {
+        @content;
+    }
+}
+
+//navbarIpad正常的斷點
+@mixin under-for-nav() {
+    @media all and (max-width: $nav-pad-media) {
+        @content;
+    }
+}
+
+//出現漢堡選單後的狀況
+@mixin under-hanburger() {
+    @media all and (max-width: $hanburger-show) {
+        @content;
+    }
+}
+
+
+//手機
+@mixin phone-width() {
+    @media all and (min-width: $phone-media) {
+        @content;
+    }
+}
+
+
+//手機以下
+@mixin under-phone-width() {
+    @media all and (max-width: $phones-media) {
+        @content;
+    }
+}

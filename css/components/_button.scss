@@ -1,0 +1,87 @@
+// ＝＝＝＝＝BTN style 放這邊＝＝＝＝＝
+
+a {
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+}
+
+.btn {
+  font-size: 0.8rem;
+  padding: .375rem .3rem;
+}
+
+.q-link {
+  font-size: 1rem;
+  position: relative;
+  margin-left: 5px;
+  color: $deep-yellow;
+  z-index: 99;
+  &::before {
+    content: attr(data-count);
+    position: absolute;
+    font-size: 0.9rem;
+    background-color: $default;
+    color: #fff;
+    left: 130%;
+    top: 0;
+    border-radius: 10px;
+    font-weight: 400;
+    text-align: center;
+    min-width: 4rem;
+    max-width: 6rem;
+    display: none;
+  }
+  &:hover {
+    color: darken($color: $deep-yellow, $amount: 10);
+    &::before {
+      display: block;
+    }
+  }
+}
+
+// -------ad--------
+
+.top-banner {
+  padding-top: 1rem;
+  padding-bottom: 1.5rem;
+}
+
+.gotoTop {
+  position: fixed;
+  bottom: 1rem;
+  right: 1.5rem;
+  width: 2rem;
+  padding: 1rem 5px 5px 5px;
+  line-height: 1.2;
+  text-align: center;
+  background-color: $light-yellow;
+  border-radius: 10px;
+  display: none;
+  z-index: 9999;
+  font-size: 1rem;
+  >i {
+    position: relative;
+    top: 0;
+    transition: .2s ease-in-out;
+  }
+  &:hover {
+    >i {
+      position: relative;
+      top: -5px;
+    }
+  }
+  @include under-pad-width {
+    right: 0;
+    font-size: 0.9rem;
+  }
+}

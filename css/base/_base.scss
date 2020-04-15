@@ -1,0 +1,422 @@
+﻿// ＝＝＝＝＝所有頁面通用樣式放這裡＝＝＝＝＝
+body {
+  padding-top: 120px;
+}
+
+section {
+  padding-top: 2rem;
+  padding-bottom: 1.5rem;
+}
+
+.mt {
+  &+.mt {
+    margin-top: 2rem;
+  }
+}
+
+@include under-large-width {
+  .mt-mobile {
+    margin-top: 2rem;
+  }
+}
+
+
+.chart-area {
+  .mt {
+    &+.mt {
+      margin-top: 4rem;
+    }
+  }
+}
+
+.clear:after,
+.clear:before,
+.container-grid:after,
+.container-grid:before,
+.row:after,
+.row:before {
+  content: normal;
+}
+
+.content {
+  overflow-x: hidden;
+  position: relative;
+  @include transition(0.5s, ease-in-out);
+}
+
+.container {
+  width: 95%;
+
+  @include phone-width {
+    max-width: 650px;
+  }
+
+  @include pad-width {
+    max-width: 850px;
+  }
+
+  @include pc-width {
+    max-width: 1000px;
+  }
+
+  @include large-width {
+    max-width: 1500px;
+
+  }
+}
+
+@include large-width {
+  .container {
+    max-width: 1500px;
+  }
+}
+
+.table-content {
+  margin-top: 1rem;
+}
+
+.fundhot-menu {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid $gray;
+}
+
+.under-pc-hide {
+  @include under-pc-width {
+    display: none !important;
+  }
+}
+
+// 表格底色設定
+.table-striped,
+.table,
+.info-table {
+  tbody {
+
+    tr,
+    td,
+    div {
+      &.stable {
+        background-color: #fff;
+      }
+
+      &.weakening {
+        background-color: $light-purple;
+      }
+
+      &.weak {
+        background-color: $dark-purple;
+      }
+
+      &.obvious-Weaken {
+        background-color: $light-green;
+      }
+
+      &.fluctuation-increase {
+        background-color: $light-orang;
+      }
+
+      &.rise {
+        color: $dark-red;
+      }
+
+      &.fall {
+        color: $green;
+      }
+
+      &.limit-up,
+      &.continued-weakness {
+        background-color: $light-red;
+        color: $dark-red;
+      }
+
+      &.limit-down,
+      &.continued-stength {
+        background-color: $light-green;
+        color: $green;
+      }
+
+      &.most-hl {
+        background-color: $light-yellow;
+      }
+
+      &.rising {
+        background-color: $dark-red;
+        color: #fff
+      }
+
+      &.falling {
+        background-color: $green;
+        color: #fff
+      }
+    }
+  }
+}
+
+.table {
+
+  td,
+  th {
+    padding: 0.5rem 0.75rem;
+    font-family: "Microsoft JhengHei", "STHeiti", Arial, Helvetica, sans-serif
+  }
+}
+
+// 圖表說明
+.caption-box {
+  padding: 10px;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  border: 1px solid $light-gray;
+
+  .caption-content {
+    font-size: 0.9rem;
+  }
+
+  .ranking {
+    list-style: none;
+    padding: 0;
+
+    >li {
+      position: relative;
+      padding-left: 40px;
+      margin-bottom: 10px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 5px;
+        height: 20px;
+        width: 30px;
+        border: 1px solid $gray;
+      }
+
+      &:nth-child(1) {
+        &::before {
+          background-color: $light-red;
+        }
+      }
+
+      &:nth-child(2) {
+        &::before {
+          background-color: $light-green;
+        }
+      }
+    }
+  }
+
+  .cp-info-block {
+    padding: 0;
+
+    >li {
+      display: inline-block;
+      padding: 5px;
+    }
+
+    &.hla {
+      >li {
+        position: relative;
+        padding-left: 40px;
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 5px;
+          height: 20px;
+          width: 30px;
+          border: 1px solid $gray;
+        }
+
+        &:nth-child(1) {
+          &::before {
+            background-color: $light-yellow;
+          }
+        }
+
+        &:nth-child(2) {
+          &::before {
+            background-color: $light-red;
+          }
+        }
+
+        &:nth-child(3) {
+          &::before {
+            background-color: $light-green;
+          }
+        }
+      }
+    }
+  }
+
+  .cap-row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .fbi-flex {
+    padding: 5px;
+    position: relative;
+    padding-left: 50px;
+    margin-top: 5px;
+
+    >p {
+      margin-bottom: 5px;
+    }
+
+    @include under-phone-width {
+      width: 100%;
+      font-size: 0.8rem;
+    }
+
+    @include phone-width {
+      width: 50%;
+    }
+
+    @include pc-width {
+      width: 25%;
+    }
+
+
+
+    &::before {
+      position: absolute;
+      padding: 5px;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      justify-items: center;
+      align-items: center;
+      border: 1px solid $gray;
+    }
+
+    &:nth-child(1) {
+      &::before {
+        content: '穩定';
+        background-color: #fff;
+      }
+    }
+
+    &:nth-child(2) {
+      &::before {
+        content: '趨弱';
+        background-color: $light-purple;
+      }
+    }
+
+    &:nth-child(3) {
+      &::before {
+        content: '弱勢';
+        background-color: $dark-purple;
+      }
+    }
+
+    &:nth-child(4) {
+      &::before {
+        content: '明顯\A轉弱';
+        background-color: $light-green;
+        white-space: pre;
+      }
+    }
+
+    &:nth-child(5) {
+      &::before {
+        content: '波動\A加大';
+        background-color: $light-orang;
+        white-space: pre;
+      }
+    }
+  }
+}
+
+.forum-row {
+  display: flex;
+  padding-top: 10px;
+  cursor: pointer;
+
+  &+.forum-row {
+    border-top: 1px solid $light-gray;
+  }
+
+  .forum-date {
+    padding-right: 10px;
+  }
+
+  .forum-title {
+    >p {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+  @include under-pad-width {
+    border-color: #dee2e6;
+  }
+}
+
+.classify-page {
+  display: none;
+
+  @include under-pad-width {
+    display: block;
+  }
+}
+
+.nav-pills {
+
+  @include under-pad-width {
+    display: none;
+  }
+}
+
+.nav-tag {
+  display: flex;
+
+  .nav-item {
+    margin-left: 5px;
+
+    @include under-pad-width {
+      margin-bottom: 10px;
+    }
+
+    .nav-link {
+      border-radius: 5px;
+    }
+  }
+}
+
+.notice-content {
+  min-height: 50vh;
+  padding: 2rem 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: url(../images/common/404bg.png);
+  background-repeat: repeat;
+
+  .text {
+    font-size: 2rem;
+  }
+}
+
+.login-notice {
+  min-height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .notice-box {
+    border: 1px solid $gray;
+    padding: 1rem;
+    text-align: center;
+
+    .btn {
+      font-size: 1.2rem;
+      margin-top: 1.5rem;
+      margin-right: 10px;
+    }
+  }
+}
